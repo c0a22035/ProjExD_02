@@ -45,12 +45,16 @@ def main():
     x, y = random.randint(0, WIDTH), random.randint(0, HEIGHT)
     bd_rct.center = (x, y)  # 練習１：Rectにランダムな座標を設定する
     vx, vy = +5, +5  # 練習２：爆弾の速度
+
     clock = pg.time.Clock()
     tmr = 0
     while True:
         for event in pg.event.get():
             if event.type == pg.QUIT: 
                 return
+        if kk_rct.colliderect(bd_rct):  # 練習５：ぶつかってたら
+            print("ゲームオーバー")
+            return
 
         screen.blit(bg_img, [0, 0])
 
